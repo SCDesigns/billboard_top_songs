@@ -1,5 +1,6 @@
-require "top_songs/version"
+require "Nokogiri"
+require "open-uri"
 
-module TopSongs
-  # Your code goes here...
-end
+require "./lib/top_songs/version"
+require "./lib/top_songs/cli"
+require "./lib/top_songs/song"
