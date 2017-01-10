@@ -10,23 +10,26 @@ class TopSongs::CLI
 		puts "What segment of the rankings would you like to view?"
 		puts "1-20, 21-40, 41-60, 61-60, 81-100"
 		puts ""
-		input = gets.strip.to_i
+		num = gets.strip.to_i
 
-		print_songs(input)
+		print_songs(num)
 
 		puts ""
 		puts "Is there a particular song you would like more info on? If so please enter it's corresponding ranking."
-		input = gets.strip.to_i
+		rank = gets.strip.to_i
 
-		song = TopSongs::Song.find(input.to_i)
+		song = TopSongs::Song.find(rank.to_i)
 
 		print_song(song)
 
 		puts ""
 		puts "Would you like to view more songs? Y or N?"
-		if input == "Y || y"
+		puts ""
+		input = gets.strip.upcase
+		if input == "Y"
 			start
-		else
+		else input == "N"
+			puts ""
 			puts "Thank You for visiting!"
 			exit
 		end
@@ -36,11 +39,11 @@ class TopSongs::CLI
 	end
 
 	def print_songs(num)
-	puts ""
-   	puts "---------- Songs: #{num} - #{num+9} ----------"
-    puts ""
-    TopSongs::Song.all[num-1, 10].each.with_index(num) do |song, rank|
-      puts "#{rank}. #{song.name} - #{song.artist}"
+		puts ""
+	   	puts "----------| Songs: #{num} - #{num+19} |----------"
+	    puts ""
+	    TopSongs::Song.all[num-1, num+19].each.with_index(num) do |song, rank|
+	    puts "#{rank}. #{song.name} - #{song.artist}"
+		end
 	end
-end
 end

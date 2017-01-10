@@ -14,17 +14,14 @@ class TopSongs::Song
 		@@all
 	end
 
-	@doc = Nokogiri::HTML(open("http://www.billboard.com/charts/hot-100"))
+	def self.find(id)
+    	self.all[id-1]
+  	end
 
-	def name
-		self.name = doc.search("chart-row__song").text.strip
-	end
-
-	def artist
-		self.artist = doc.search("chart-row__artist").text.strip
-	end
-
-	def rating
-		self.rating= doc.search("chart-row__current-week").text.strip
+	def self.scrape
+	  @doc ||= Nokogiri::HTML(open("http://www.billboard.com/charts/hot-100"))
+		self.name = doc.xpath("chart-row__song").text
+		self.artist = doc.xpath("chart-row__artist").text
+		self.rating = doc.xpath("chart-row__current-week").text
 	end
 end
