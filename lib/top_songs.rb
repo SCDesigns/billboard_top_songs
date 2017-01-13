@@ -1,4 +1,5 @@
-require "Nokogiri"
+require "nokogiri"
+require "pry"
 require "open-uri"
 
 require "./lib/top_songs/version"

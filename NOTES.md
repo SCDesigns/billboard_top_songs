@@ -9,3 +9,4 @@ We want to build a command line interface that will alow the user to learn about
 
 - Naturally it stands to reason that a song, being the primary component of our program, requires a class of it's own. Songs of course have properties that we will define based upon what we are able to scrape from the website. For example: name, artist, and rating among others.
 
+chart-row chart-row--#{i} js-chart-row
