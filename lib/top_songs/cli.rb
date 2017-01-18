@@ -5,6 +5,7 @@ class TopSongs::CLI
 	end
 
 	def list
+		TopSongs::Scraper.new.make_songs
 		puts "Welcome to the Billboard Hot 100! The definitive listing of the top 100 songs in America!"
 		puts ""
 		puts "What segment of the rankings would you like to view?"
@@ -16,7 +17,6 @@ class TopSongs::CLI
 		puts ""
 		puts "-*-*-*-*-*| Songs #{num} - #{num+19} |*-*-*-*-*-"
 		puts ""
-		binding.pry
 		TopSongs::Song.all[num-1, 20].each do |song|
       	puts "#{song.position}. #{song.name} - #{song.artist}"
 		end
@@ -26,6 +26,7 @@ class TopSongs::CLI
 		list
 		input = nil
 		while input != "exit"
+			puts ""
 			puts "Is there a particular song you would like more info on? If so please enter it's corresponding ranking."
 			puts ""
 
@@ -35,6 +36,7 @@ class TopSongs::CLI
 				list
 			end
 
+			puts ""
 			puts "Enter 'list' to view the list of songs again. Or 'exit' to end the program."
 			puts ""
 
