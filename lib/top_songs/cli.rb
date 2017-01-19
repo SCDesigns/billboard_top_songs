@@ -1,9 +1,5 @@
 class TopSongs::CLI
 
-	def call
-		start
-	end
-
 	def list
 		TopSongs::Scraper.new.make_songs
 		puts "Welcome to the Billboard Hot 100! The definitive listing of the top 100 songs in America!"
@@ -22,7 +18,7 @@ class TopSongs::CLI
 		end
 	end
 
-	def start
+	def call
 		list
 		input = nil
 		while input != "exit"
