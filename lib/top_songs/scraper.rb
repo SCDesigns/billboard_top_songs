@@ -5,7 +5,6 @@ class TopSongs::Scraper
   end 
   
   def scrape_songs
-    sleep 1
     self.scrape_page.css("article.chart-row")
   end
 

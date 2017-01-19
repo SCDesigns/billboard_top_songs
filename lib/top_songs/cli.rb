@@ -9,7 +9,7 @@ class TopSongs::CLI
 		puts "Welcome to the Billboard Hot 100! The definitive listing of the top 100 songs in America!"
 		puts ""
 		puts "What segment of the rankings would you like to view?"
-		puts "1-20, 21-40, 41-60, 61-60, 81-100"
+		puts "1-20, 21-40, 41-60, 61-80, 81-100"
 		puts ""
 
 		num = gets.to_i
@@ -32,8 +32,17 @@ class TopSongs::CLI
 
 			input = gets.to_i
 
+			id = TopSongs::Song.all[input-1]
+			
+			puts ""
+      		puts "#{id.position}. #{id.name} - #{id.artist}"
+      		puts "[ * ] Last Week's Rank: #{id.last_week}"
+      		puts "[ * ] Peak Rank: #{id.peak}"
+      		puts "[ * ] Weeks on Chart: #{id.weeks_on}"
+
+
 			if input == "list"
-				list
+				start
 			end
 
 			puts ""
@@ -43,7 +52,7 @@ class TopSongs::CLI
 			input = gets.strip
 
 			if input == "list"
-				list
+				start
 			end
 
 			puts ""
