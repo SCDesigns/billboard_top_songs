@@ -38,7 +38,7 @@ class TopSongs::CLI
 
 
 			if input == "list"
-				start
+				call
 			end
 
 			puts ""
@@ -48,7 +48,7 @@ class TopSongs::CLI
 			input = gets.strip
 
 			if input == "list"
-				start
+				call
 			end
 
 			puts ""
