@@ -4,16 +4,8 @@ class TopSongs::Song
 
 		@@all = []
 
-		def self.new_from_index(content)
-		self.new(
-			"http://www.billboard.com/charts/hot-100",
-			content.css("h2.chart-row__song").text,
-			content.css("div.chart-row__container > div > a.chart-row__artist").text.split(" ").join(" "),
-			content.css("span.chart-row__current-week").text,
-			content.css("div.chart-row__last-week > span.chart-row__value").text.split,
-			content.css("div.chart-row__top-spot > span.chart-row__value").text.split,
-			content.css("div.chart-row__weeks-on-chart > span.chart-row__value").text.split
-		)
+		def self.find_by_index(indx)
+			self.all[indx]
 		end
 
 		def initialize(url=nil, name=nil, artist=nil, position=nil, last_week=nil, peak=nil, weeks_on=nil)

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/top_songs'
+require_relative '../lib/top_songs'
 
 TopSongs::CLI.new.call

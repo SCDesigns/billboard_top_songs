@@ -7,7 +7,10 @@ class TopSongs::CLI
 		puts "What segment of the rankings would you like to view?"
 		puts "1-20, 21-40, 41-60, 61-80, 81-100"
 		puts ""
+		choose_segment
+	end
 
+	def choose_segment
 		num = gets.to_i
 
 		puts ""
@@ -15,31 +18,33 @@ class TopSongs::CLI
 		puts ""
 		TopSongs::Song.all[num-1, 20].each do |song|
       	puts "#{song.position}. #{song.name} - #{song.artist}"
-		end
+      end
+	end
+	
+	def choose_song
+		puts ""
+		puts "Is there a particular song you would like more info on? If so please enter it's corresponding ranking."
+		puts ""
+		indx = gets.to_i
+		binding.pry
+		song = TopSongs::Song.find_by_index(indx-1)
+		if !song 
+			choose_song
+		else
+			puts ""
+      		puts "#{song.position}. #{song.name} - #{song.artist}"
+      		puts "[ * ] Last Week's Rank: #{song.last_week}"
+      		puts "[ * ] Peak Rank: #{song.peak}"
+      		puts "[ * ] Weeks on Chart: #{song.weeks_on}"
+      	end
 	end
 
 	def call
 		list
 		input = nil
 		while input != "exit"
-			puts ""
-			puts "Is there a particular song you would like more info on? If so please enter it's corresponding ranking."
-			puts ""
 
-			input = gets.to_i
-
-			id = TopSongs::Song.all[input-1]
-			
-			puts ""
-      		puts "#{id.position}. #{id.name} - #{id.artist}"
-      		puts "[ * ] Last Week's Rank: #{id.last_week}"
-      		puts "[ * ] Peak Rank: #{id.peak}"
-      		puts "[ * ] Weeks on Chart: #{id.weeks_on}"
-
-
-			if input == "list"
-				call
-			end
+			choose_song
 
 			puts ""
 			puts "Enter 'list' to view the list of songs again. Or 'exit' to end the program."
