@@ -1,7 +1,7 @@
 class BillboardTopSongs::CLI
 
 	def list
-		TopSongs::Scraper.new.make_songs
+		BillboardTopSongs::Scraper.new.make_songs
 		puts "Welcome to the Billboard Hot 100! The definitive listing of the top 100 songs in America!"
 		puts ""
 		puts "What segment of the rankings would you like to view?"
@@ -16,7 +16,7 @@ class BillboardTopSongs::CLI
 		puts ""
 		puts "-*-*-*-*-*| Songs #{num} - #{num+19} |*-*-*-*-*-"
 		puts ""
-		TopSongs::Song.all[num-1, 20].each do |song|
+		BillboardTopSongs::Song.all[num-1, 20].each do |song|
       	puts "#{song.position}. #{song.name} - #{song.artist}"
       end
 	end
@@ -27,7 +27,7 @@ class BillboardTopSongs::CLI
 		puts ""
 		indx = gets.to_i
 		binding.pry
-		song = TopSongs::Song.find_by_index(indx-1)
+		song = BillboardTopSongs::Song.find_by_index(indx-1)
 		if !song
 			choose_song
 		else

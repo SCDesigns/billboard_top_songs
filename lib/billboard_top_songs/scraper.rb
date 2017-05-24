@@ -10,7 +10,7 @@ class BillboardTopSongs::Scraper
 
   def make_songs
     scrape_songs.each do |content|
-      TopSongs::Song.new(
+      BillboardTopSongs::Song.new(
       "http://www.billboard.com/charts/hot-100",
       content.css("h2.chart-row__song").text,
       content.css("div.chart-row__container > div > a.chart-row__artist").text.split(" ").join(" "),

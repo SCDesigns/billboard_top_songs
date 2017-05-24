@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'top_songs/version'
+require 'billboard_top_songs/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "billboard_top_songs"
@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["xseanclarke@gmail.com"]
 
   spec.summary       = %q{This Ruby Gem provides a CLI to view the top 100 songs in music as per the Billboard charts.}
-  spec.homepage      = "https://github.com/SCDesigns/top-songs-cli-gem"
+  spec.homepage      = "https://github.com/SCDesigns/billboard_top_songs"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  add_runtime_dependency 'nokogiri'
+  spec.add_runtime_dependency 'nokogiri'
 end
