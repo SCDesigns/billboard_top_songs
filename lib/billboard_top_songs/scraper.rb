@@ -1,15 +1,15 @@
-class TopSongs::Scraper
+class BillboardTopSongs::Scraper
 
   def scrape_page
     doc = Nokogiri::HTML(open("http://www.billboard.com/charts/hot-100"))
-  end 
-  
+  end
+
   def scrape_songs
     self.scrape_page.css("article.chart-row")
   end
 
   def make_songs
-    scrape_songs.each do |content| 
+    scrape_songs.each do |content|
       TopSongs::Song.new(
       "http://www.billboard.com/charts/hot-100",
       content.css("h2.chart-row__song").text,
@@ -19,6 +19,6 @@ class TopSongs::Scraper
       content.css("div.chart-row__top-spot > span.chart-row__value").text.split,
       content.css("div.chart-row__weeks-on-chart > span.chart-row__value").text.split
       )
-    end  
+    end
   end
-end 
+end

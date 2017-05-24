@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe TopSongs do
+describe BillboardTopSongs do
   it "has a version number" do
-    expect(TopSongs::VERSION).not_to be nil
+    expect(BillboardTopSongs::VERSION).not_to be nil
   end
 
   it "does something useful" do

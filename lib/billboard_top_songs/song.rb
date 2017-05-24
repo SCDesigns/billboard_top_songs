@@ -1,4 +1,4 @@
-class TopSongs::Song
+class BillboardTopSongs::Song
 
 		attr_accessor :name, :position, :artist, :last_week, :peak, :weeks_on, :url
 
@@ -21,5 +21,5 @@ class TopSongs::Song
 
 		def self.all
 			@@all
-		end 
+		end
 end

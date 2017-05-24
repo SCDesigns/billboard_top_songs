@@ -1,4 +1,4 @@
-class TopSongs::CLI
+class BillboardTopSongs::CLI
 
 	def list
 		TopSongs::Scraper.new.make_songs
@@ -20,7 +20,7 @@ class TopSongs::CLI
       	puts "#{song.position}. #{song.name} - #{song.artist}"
       end
 	end
-	
+
 	def choose_song
 		puts ""
 		puts "Is there a particular song you would like more info on? If so please enter it's corresponding ranking."
@@ -28,7 +28,7 @@ class TopSongs::CLI
 		indx = gets.to_i
 		binding.pry
 		song = TopSongs::Song.find_by_index(indx-1)
-		if !song 
+		if !song
 			choose_song
 		else
 			puts ""
