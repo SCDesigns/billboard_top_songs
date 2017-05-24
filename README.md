@@ -4,13 +4,13 @@ This Ruby Gem provides a CLI to view the top 100 songs in music as per the Billb
 
 ## Installation
 
-    $ gem install top-songs
+    $ gem install billboard_top_songs
 
 ## Usage
 
 Type the below and follow the on screen prompts.
 
-    $ top-songs
+    $ billboard_top_songs
 
 ## Development
 
