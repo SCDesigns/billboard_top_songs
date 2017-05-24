@@ -11,4 +11,4 @@ require "billboard_top_songs"
 # Pry.start
 
 require "irb"
-IRB.start
+IRB.start(__FILE__)
