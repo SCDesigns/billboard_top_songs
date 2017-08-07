@@ -7,7 +7,6 @@ Gem::Specification.new do |spec|
   spec.name          = "billboard_top_songs"
   spec.version       = BillboardTopSongs::VERSION
   spec.authors       = ["Sean Clarke"]
-  spec.email         = ["xseanclarke@gmail.com"]
 
   spec.summary       = %q{This Ruby Gem provides a CLI to view the top 100 songs in music as per the Billboard charts.}
   spec.homepage      = "https://github.com/SCDesigns/billboard_top_songs"

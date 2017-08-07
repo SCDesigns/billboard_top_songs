@@ -17,16 +17,15 @@ class BillboardTopSongs::CLI
 		puts "-*-*-*-*-*| Songs #{num} - #{num+19} |*-*-*-*-*-"
 		puts ""
 		BillboardTopSongs::Song.all[num-1, 20].each do |song|
-      	puts "#{song.position}. #{song.name} - #{song.artist}"
-      end
+    	puts "#{song.position}. #{song.name} - #{song.artist}"
+    end
 	end
 
 	def choose_song
-		puts ""
-		puts "Is there a particular song you would like more info on? If so please enter it's corresponding ranking."
-		puts ""
+		puts "\n" + "-------------------------------------------------------"
+		puts "Is there a particular song you would like more info on?" + "\n" + "If so please enter it's corresponding ranking."
+		puts "-------------------------------------------------------" + "\n" + "\n"
 		indx = gets.to_i
-		binding.pry
 		song = BillboardTopSongs::Song.find_by_index(indx-1)
 		if !song
 			choose_song
@@ -46,9 +45,9 @@ class BillboardTopSongs::CLI
 
 			choose_song
 
-			puts ""
-			puts "Enter 'list' to view the list of songs again. Or 'exit' to end the program."
-			puts ""
+			puts "\n" + "---------------------------------------------"
+			puts "Enter 'list' to view the list of songs again." + "\n" + "Or 'exit' to end the program."
+			puts "---------------------------------------------"
 
 			input = gets.strip
 
